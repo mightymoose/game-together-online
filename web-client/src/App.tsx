@@ -1,13 +1,19 @@
-import { Layout } from './Layout';
+import { Layout } from './routes/Layout';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import LandingPage from './routes/LandingPage';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { path: "/", element: <LandingPage /> },
+    ]
+  },
+]);
 
 function App() {
-  return (
-    <Layout>
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-        Game Together Online
-      </h1>
-    </Layout>
-  );
+  return <RouterProvider router={router} />
 }
 
-export default App
+export default App;
