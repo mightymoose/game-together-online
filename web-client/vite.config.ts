@@ -12,6 +12,13 @@ export default defineConfig({
   },
   test: {
     environment: 'happy-dom',
-    exclude: ['tests', 'node_modules']
+    exclude: ['tests', 'node_modules'],
+    coverage: {
+      all: true,
+      include: ['src'],
+      exclude: ['src/**/*.page.*'],
+      provider: 'istanbul',
+      reporter: ['text', 'json', 'html'],
+    }
   }
 })
