@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import LandingPage from './LandingPage';
+import LandingPage from "./LandingPage";
 
 export class LandingPagePage {
-    render() {
-        render(<LandingPage />);
-    }
+  render() {
+    render(<LandingPage />);
+  }
 
-    get heading(): HTMLElement {
-        return screen.getByRole('heading', { name: 'Game Together Online' });
-    }
+  get heading(): HTMLElement {
+    return screen.getByRole("heading", { name: "Game Together Online" });
+  }
 }

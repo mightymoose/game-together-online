@@ -1,3 +1,1 @@
-export const ConnectionBadge = () => {
-
-}
+export const ConnectionBadge = () => {};
