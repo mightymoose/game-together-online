@@ -8,6 +8,12 @@ RUN npm install
 
 COPY . .
 
+RUN npm run test:ci
+
+RUN npm run lint
+
+RUN npm run format:check
+
 RUN npm run build
 
 FROM nginx:1.25.4-alpine

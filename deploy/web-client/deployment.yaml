@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-client-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web-client
+  template:
+    metadata:
+      labels:
+        app: web-client
+    spec:
+      containers:
+        - name: web-client 
+          image: game_together_online/web_client
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
