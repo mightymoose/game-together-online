@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-client-service
+  name: api-service
 spec:
   selector:
-    app: web-client 
+    app: api
   ports:
     - protocol: TCP
-      port: 80  
-      targetPort: 80
+      port: 4000  
+      targetPort: 4000
