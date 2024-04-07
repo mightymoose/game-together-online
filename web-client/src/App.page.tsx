@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "@support/utils";
 import App from "./App";
 
 export class AppPage {

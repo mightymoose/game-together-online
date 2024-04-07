@@ -13,7 +13,6 @@ docker build -f api/deploy/Dockerfile -t $api_image api
 kubectl set image deployment/web-client-deployment web-client=$web_client_image
 
 kubectl apply -f deploy/web-client/service.yaml
-kubectl rollout restart deployment web-client-deployment
 
 kubectl apply -f deploy/api-database/secret.yaml
 kubectl apply -f deploy/api-database/deployment.yaml
@@ -22,7 +21,9 @@ kubectl apply -f deploy/api-database/service.yaml
 kubectl set image deployment/api-deployment api=$api_image
 kubectl apply -f deploy/api/secret.yaml
 kubectl apply -f deploy/api/service.yaml
-kubectl rollout restart deployment api-deployment
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
 kubectl apply -f deploy/ingress.yaml
+
+kubectl rollout restart deployment web-client-deployment
+kubectl rollout restart deployment api-deployment
