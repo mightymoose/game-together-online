@@ -7,7 +7,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://host.docker.internal:4000",
+      "/api": {
+        target: "http://host.docker.internal:4000",
+        ws: true,
+      },
     },
   },
   resolve: {

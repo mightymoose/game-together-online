@@ -3,7 +3,7 @@ import { SocketRoundTripTimeCard } from "./ConnectionCard/SocketRoundTripTimeCar
 
 export const ConnectionCard = () => {
   return (
-    <div className="m-2 flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <h4 className="mb-2 text-green-900">Connected</h4>
       <dl className="flex space-x-10">
         <PingRoundTripTimeCard />

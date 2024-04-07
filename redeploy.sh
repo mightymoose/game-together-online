@@ -20,6 +20,7 @@ kubectl apply -f deploy/api-database/service.yaml
 
 kubectl set image deployment/api-deployment api=$api_image
 kubectl apply -f deploy/api/secret.yaml
+kubectl apply -f deploy/api/configmap.yaml
 kubectl apply -f deploy/api/service.yaml
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
