@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { environment } from "./environment";
+import { environment } from "@/environment";
 
 const getPingRoundtripTime = async () => {
   const start = Date.now();
