@@ -29,3 +29,8 @@ spec:
                 secretKeyRef:
                   name: api-secret
                   key: secret-key-base
+            - name: PHX_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: hostname

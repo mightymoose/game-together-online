@@ -19,7 +19,7 @@ export const Layout = () => {
           <HoverCardTrigger>
             <RadioTower className="h-4 w-4 text-green-500" />
           </HoverCardTrigger>
-          <HoverCardContent>
+          <HoverCardContent className="mx-2">
             <ConnectionCard />
           </HoverCardContent>
         </HoverCard>
