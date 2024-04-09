@@ -1,5 +1,5 @@
 import { render, screen } from "@support/utils";
-import { ConnectionCard } from "./ConnectionCard";
+import { ConnectionCard } from "./ConnectionBadge/ConnectionCard";
 
 export class ConnectionCardPage {
   render() {
@@ -8,5 +8,9 @@ export class ConnectionCardPage {
 
   get pingHeader() {
     return screen.getByText("Ping");
+  }
+
+  get socketHeader() {
+    return screen.getByText("Server");
   }
 }

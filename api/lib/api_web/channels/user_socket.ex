@@ -10,7 +10,7 @@ defmodule ApiWeb.UserSocket do
   # Uncomment the following line to define a "room:*" topic
   # pointing to the `ApiWeb.RoomChannel`:
   #
-  # channel "room:*", ApiWeb.RoomChannel
+  channel "ping", ApiWeb.PingChannel
   #
   # To create a channel file, use the mix task:
   #
@@ -18,7 +18,6 @@ defmodule ApiWeb.UserSocket do
   #
   # See the [`Channels guide`](https://hexdocs.pm/phoenix/channels.html)
   # for further details.
-
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After

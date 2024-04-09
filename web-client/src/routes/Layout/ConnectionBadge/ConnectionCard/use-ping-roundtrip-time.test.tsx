@@ -6,5 +6,6 @@ describe("usePingRoundtripTime", () => {
   it("returns the roundtrip time", async () => {
     const { result } = renderHook(usePingRoundtripTime, { wrapper });
     await waitFor(() => expect(result.current.isSuccess).toBeTruthy());
+    expect(result.current.data).toBeGreaterThan(0);
   });
 });
