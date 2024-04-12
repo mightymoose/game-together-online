@@ -7,3 +7,10 @@ test("has title", async ({ page }) => {
   await app.goto();
   await expect(app.heading).toBeVisible();
 });
+
+test("connects to the server", async ({ page }) => {
+  const app = new AppPage(page);
+
+  await app.goto();
+  await expect(app.connectedIcon).toBeVisible();
+});
