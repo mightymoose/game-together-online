@@ -12,6 +12,9 @@ defmodule ApiWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug ApiWeb.Plugs.EnsurePlayerProfile
+    plug ApiWeb.Plugs.SetPlayerProfile
   end
 
   scope "/", ApiWeb do
@@ -22,6 +25,11 @@ defmodule ApiWeb.Router do
 
   scope "/api", ApiWeb do
     pipe_through :api
+
+    scope "/users", Users do
+      get "/profiles/current", ProfileController, :current
+      put "/profiles/current", ProfileController, :update
+    end
 
     get "/ping", PingController, :ping
   end

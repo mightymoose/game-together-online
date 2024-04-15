@@ -11,4 +11,9 @@ describe("<App />", () => {
     page.render();
     expect(page.heading).toBeInTheDocument();
   });
+
+  it("shows the profile card", () => {
+    page.render();
+    expect(page.profileCard.heading).toBeInTheDocument();
+  });
 });
