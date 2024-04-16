@@ -1,5 +1,5 @@
 defmodule ApiWeb.Plugs.EnsurePlayerProfile do
-  alias Api.Users.Profile
+  alias Api.Users
   alias ApiWeb.Plugs.PlayerProfile
 
   def init(_params) do
@@ -12,9 +12,8 @@ defmodule ApiWeb.Plugs.EnsurePlayerProfile do
   end
 
   defp maybe_set_profile(nil, conn) do
-    random_username = Profile.random_username()
-    default_profile = %Profile{username: random_username}
-    PlayerProfile.store_in_session(conn, default_profile)
+    {:ok, profile} = Users.create_profile()
+    PlayerProfile.store_in_session(conn, profile)
   end
 
   defp maybe_set_profile(_, conn), do: conn

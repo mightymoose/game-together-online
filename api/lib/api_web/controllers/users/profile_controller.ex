@@ -1,10 +1,8 @@
 defmodule ApiWeb.Users.ProfileController do
   use ApiWeb, :controller
 
-  alias Api.Users.Profile
+  alias Api.Users
   alias ApiWeb.Users.ProfileConnectionStorage
-  alias ApiWeb.Plugs.PlayerProfile
-  alias Ecto.Changeset
 
   def current(conn, _params) do
     current_profile = ProfileConnectionStorage.load(conn)
@@ -12,13 +10,12 @@ defmodule ApiWeb.Users.ProfileController do
   end
 
   def update(conn, %{"profile" => profile_params}) do
-    changeset = Profile.changeset(%Profile{}, profile_params)
+    profile = ProfileConnectionStorage.load(conn)
 
-    case Changeset.apply_action(changeset, :update) do
+    case Users.update_profile(profile, profile_params) do
       {:ok, profile} ->
-        conn
-        |> PlayerProfile.store_in_session(profile)
-        |> render(:update, profile: profile)
+        ProfileConnectionStorage.store(conn, profile)
+        render(conn, :update, profile: profile)
 
       {:error, changeset} ->
         conn
