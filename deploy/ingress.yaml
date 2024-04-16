@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: mightymoose.tplinkdns.com
+    - host: game-together.online
       http:
         paths:
           - path: /api(/|$)(.*)
