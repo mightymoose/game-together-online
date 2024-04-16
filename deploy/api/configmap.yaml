@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: api-config
 data:
-  hostname: mightymoose.tplinkdns.com
+  hostname: game-together.online
