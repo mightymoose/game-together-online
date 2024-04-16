@@ -1,8 +1,9 @@
 defmodule Api.UsersFixtures do
-  def profile_fixture(attrs \\ %{}) do
-    attrs
-    |> Enum.into(%{
-      username: "some username"
-    })
+  alias Api.Users
+
+  def profile_fixture() do
+    {:ok, profile} = Users.create_profile()
+
+    profile
   end
 end

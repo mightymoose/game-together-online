@@ -2,16 +2,15 @@ defmodule Api.Users.ProfileTest do
   use Api.DataCase
 
   alias Api.Users.Profile
-  alias Api.UsersFixtures
+
+  @valid_attrs %{username: "username"}
 
   test "is invalid without a username" do
-    profile = UsersFixtures.profile_fixture(%{username: nil})
-    refute Profile.changeset(%Profile{}, profile).valid?
+    refute Profile.changeset(%Profile{}, Map.put(@valid_attrs, :username, nil)).valid?
   end
 
   test "is valid with a username" do
-    profile = UsersFixtures.profile_fixture(%{username: "username"})
-    assert Profile.changeset(%Profile{}, profile).valid?
+    assert Profile.changeset(%Profile{}, @valid_attrs).valid?
   end
 
   describe "random_username/0" do
