@@ -14,4 +14,9 @@ describe("<LandingPage />", () => {
     page.render();
     expect(page.profileCard.heading).toBeInTheDocument();
   });
+
+  it("shows the join game card", () => {
+    page.render();
+    expect(page.joinGameCard.quickPairingTab).toBeInTheDocument();
+  });
 });
