@@ -2,8 +2,8 @@ import { render, screen } from "@support/utils";
 import LandingPage from "./LandingPage";
 import { ProfileCardPage } from "./LandingPage/ProfileCard.page";
 import { MemoryRouter } from "react-router-dom";
-import { QuickPairingPage } from "./LandingPage/JoinGameCard/QuickPairing.page";
 import { JoinGameCardPage } from "./LandingPage/JoinGameCard.page";
+import { CreateGameCardPage } from "./LandingPage/CreateGameCard.page";
 
 export class LandingPagePage {
   render() {
@@ -24,5 +24,9 @@ export class LandingPagePage {
 
   get joinGameCard(): JoinGameCardPage {
     return new JoinGameCardPage();
+  }
+
+  get createGameCard(): CreateGameCardPage {
+    return new CreateGameCardPage();
   }
 }

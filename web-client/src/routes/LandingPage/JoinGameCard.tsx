@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ConstructionIcon } from "lucide-react";
 import { QuickPairing } from "./JoinGameCard/QuickPairing";
-import { useQuicklyPair } from "./JoinGameCard/QuickPairing/useQuicklyPair";
+import { useQuicklyPair } from "./JoinGameCard/QuickPairing/use-quickly-pair";
 import { useNavigate } from "react-router-dom";
 
 export const JoinGameCard = ({ className }: { className: string }) => {
