@@ -1,6 +1,6 @@
 import { JoinGameCard } from "./LandingPage/JoinGameCard";
 import { ProfileCard } from "./LandingPage/ProfileCard";
-import { UnderConstructionCard } from "./LandingPage/UnderConstructionCard";
+import { CreateGameCard } from "./LandingPage/CreateGameCard";
 
 function LandingPage() {
   return (
@@ -12,7 +12,7 @@ function LandingPage() {
       <div className="grid grid-cols-7 gap-4 mt-8">
         <ProfileCard className="col-span-2" />
         <JoinGameCard className="col-span-3" />
-        <UnderConstructionCard className="col-span-2" />
+        <CreateGameCard className="col-span-2" />
       </div>
     </div>
   );

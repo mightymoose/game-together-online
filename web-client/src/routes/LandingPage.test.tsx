@@ -19,4 +19,9 @@ describe("<LandingPage />", () => {
     page.render();
     expect(page.joinGameCard.quickPairingTab).toBeInTheDocument();
   });
+
+  it("shows the create game card", () => {
+    page.render();
+    expect(page.createGameCard.createGameButton).toBeInTheDocument();
+  });
 });
