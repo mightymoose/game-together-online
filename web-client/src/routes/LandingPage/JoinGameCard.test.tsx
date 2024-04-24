@@ -19,7 +19,11 @@ describe("<JoinGameCard />", () => {
 
   it("switches between tabs", async () => {
     page.render();
-    expect(page.quickPairing.spadesButton.quickPairButton).toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        page.quickPairing.spadesButton.quickPairButton,
+      ).toBeInTheDocument(),
+    );
     expect(page.lobbyUnderConstructionMessage).not.toBeInTheDocument();
     userEvent.click(page.lobbyTab);
     await waitFor(() =>

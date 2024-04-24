@@ -26,6 +26,10 @@ defmodule ApiWeb.Router do
   scope "/api", ApiWeb do
     pipe_through :api
 
+    scope "/games", Games do
+      get "/game_types", GameTypesController, :index
+    end
+
     scope "/users", Users do
       get "/profiles/current", ProfileController, :current
       put "/profiles/current", ProfileController, :update
