@@ -1,6 +1,8 @@
 defmodule ApiWeb.Users.ProfileController do
   use ApiWeb, :controller
 
+  action_fallback ApiWeb.FallbackController
+
   alias Api.Users
   alias ApiWeb.Users.ProfileConnectionStorage
 
@@ -12,15 +14,9 @@ defmodule ApiWeb.Users.ProfileController do
   def update(conn, %{"profile" => profile_params}) do
     profile = ProfileConnectionStorage.load(conn)
 
-    case Users.update_profile(profile, profile_params) do
-      {:ok, profile} ->
-        ProfileConnectionStorage.store(conn, profile)
-        render(conn, :update, profile: profile)
-
-      {:error, changeset} ->
-        conn
-        |> put_status(:unprocessable_entity)
-        |> render(:error, changeset: changeset)
+    with {:ok, profile} <- Users.update_profile(profile, profile_params) do
+      ProfileConnectionStorage.store(conn, profile)
+      render(conn, :update, profile: profile)
     end
   end
 end
