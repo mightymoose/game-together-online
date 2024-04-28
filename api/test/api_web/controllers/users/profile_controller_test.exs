@@ -19,6 +19,14 @@ defmodule ApiWeb.Users.ProfileControllerTest do
   end
 
   describe "PUT /api/users/profiles/current" do
+    test "returns an error when the data is invalid", %{conn: conn} do
+      conn = get(conn, "/api/users/profiles/current")
+      assert %{"username" => _username} = json_response(conn, 200)["data"]
+
+      conn = put(conn, "/api/users/profiles/current", %{profile: %{username: ""}})
+      assert %{"username" => ["can't be blank"]} = json_response(conn, 422)["errors"]
+    end
+
     test "updates the users' profile", %{conn: conn} do
       conn = get(conn, "/api/users/profiles/current")
       assert %{"username" => _username} = json_response(conn, 200)["data"]
