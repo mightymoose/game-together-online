@@ -1,9 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
+import { api } from "@/api";
 
-const createGame = () =>
-  new Promise<void>((resolve) => setTimeout(resolve, 100));
+interface CreateGameBody {
+  game_type_id: string;
+}
 
 export const useCreateGame = () =>
   useMutation({
-    mutationFn: createGame,
+    mutationFn: (game: CreateGameBody) => api.post("/games", { game }),
   });

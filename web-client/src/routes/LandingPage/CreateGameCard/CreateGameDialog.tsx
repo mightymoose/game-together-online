@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { CreateSpadesGameButton } from "./CreateGameDialog/CreateSpadesGameButton";
 import { useCreateGame } from "./CreateGameDialog/use-create-game";
-import { useGameTypes } from "@/lib/use-game-types";
+import { useGameTypes, GameType } from "@/lib/use-game-types";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const GameTypesLoading = () => {
@@ -31,9 +31,8 @@ export const CreateGameDialog = () => {
     spades: CreateSpadesGameButton,
   };
 
-  const handleCreateGame = async () => {
-    await createGame.mutateAsync();
-    console.log("ASDF");
+  const handleCreateGame = async (gameType: GameType) => {
+    await createGame.mutateAsync({ game_type_id: gameType.id });
 
     navigate("/games/spades");
   };
@@ -41,7 +40,12 @@ export const CreateGameDialog = () => {
   return gameTypes.isSuccess ? (
     gameTypes.data.map((gameType) => {
       const Button = buttonsForGameTypes[gameType.slug];
-      return <Button onCreate={handleCreateGame} key={gameType.slug} />;
+      return (
+        <Button
+          onCreate={() => handleCreateGame(gameType)}
+          key={gameType.slug}
+        />
+      );
     })
   ) : (
     <GameTypesLoading />
