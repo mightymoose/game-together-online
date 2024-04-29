@@ -4,6 +4,6 @@ defmodule ApiWeb.Games.GameTypesJSON do
   end
 
   defp game_type(%Api.Games.GameType{} = game_type) do
-    %{name: game_type.name, slug: game_type.slug}
+    %{id: game_type.id, name: game_type.name, slug: game_type.slug}
   end
 end

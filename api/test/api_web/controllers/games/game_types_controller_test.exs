@@ -3,6 +3,8 @@ defmodule ApiWeb.Games.GameTypesControllerTest do
 
   test "GET /api/ping", %{conn: conn} do
     conn = get(conn, ~p"/api/games/game_types")
-    assert json_response(conn, 200) == %{"data" => [%{"name" => "Spades", "slug" => "spades"}]}
+
+    assert %{"data" => [%{"name" => "Spades", "slug" => "spades"}]} =
+             json_response(conn, 200)
   end
 end

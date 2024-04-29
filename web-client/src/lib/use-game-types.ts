@@ -1,7 +1,8 @@
 import { api } from "@/api";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 
-interface GameType {
+export interface GameType {
+  id: string;
   name: string;
   slug: string;
 }
