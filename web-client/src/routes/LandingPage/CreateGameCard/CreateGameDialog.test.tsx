@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, Mock } from "vitest";
 import { CreateGameDialogPage } from "./CreateGameDialog.page";
-import "@testing-library/jest-dom/vitest";
 import { waitFor } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 import { useNavigate as navigateHook } from "react-router-dom";

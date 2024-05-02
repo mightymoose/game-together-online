@@ -1,5 +1,4 @@
 import { describe, it, expect, vi } from "vitest";
-import "@testing-library/jest-dom/vitest";
 import { SpadesButtonPage } from "./SpadesButton.page";
 import userEvent from "@testing-library/user-event";
 import { waitFor } from "@testing-library/react";

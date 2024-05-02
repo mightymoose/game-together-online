@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { JoinGameCardPage } from "./JoinGameCard.page";
-import "@testing-library/jest-dom/vitest";
 import userEvent from "@testing-library/user-event";
 import { waitFor } from "@testing-library/react";
 

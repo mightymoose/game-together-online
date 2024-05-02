@@ -1,6 +1,5 @@
 import { test, describe, expect, vi } from "vitest";
 import { FailedToLoadProfileMessagePage } from "./FailedToLoadProfileMessage.page";
-import "@testing-library/jest-dom/vitest";
 
 describe("<FailedToLoadProfileMessage />", () => {
   const page = new FailedToLoadProfileMessagePage();

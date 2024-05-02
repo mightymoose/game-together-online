@@ -1,5 +1,4 @@
 import { it, expect, describe, vi } from "vitest";
-import "@testing-library/jest-dom/vitest";
 import { AppPage } from "./App.page";
 
 vi.mock("@/lib/socket");

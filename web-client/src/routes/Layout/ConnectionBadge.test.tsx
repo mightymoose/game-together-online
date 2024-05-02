@@ -1,7 +1,6 @@
 import { render, screen } from "@support/utils";
 import { ConnectionBadge } from "./ConnectionBadge";
 import { describe, expect, it, vi } from "vitest";
-import "@testing-library/jest-dom/vitest";
 
 vi.mock("@/lib/socket");
 
