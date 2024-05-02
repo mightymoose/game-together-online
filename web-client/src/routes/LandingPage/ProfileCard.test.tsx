@@ -1,5 +1,4 @@
 import { test, describe, expect, beforeEach, vi } from "vitest";
-import "@testing-library/jest-dom/vitest";
 import { ProfileCardPage } from "./ProfileCard.page";
 import { waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";

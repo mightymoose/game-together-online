@@ -1,5 +1,4 @@
 import { describe, expect, it, vi } from "vitest";
-import "@testing-library/jest-dom/vitest";
 import { QuickPairingPage } from "./QuickPairing.page";
 import userEvent from "@testing-library/user-event";
 import { waitFor } from "@testing-library/react";

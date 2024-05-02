@@ -1,5 +1,4 @@
 import { it, expect, describe } from "vitest";
-import "@testing-library/jest-dom/vitest";
 import { LandingPagePage } from "./LandingPage.page";
 
 describe("<LandingPage />", () => {

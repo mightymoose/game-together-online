@@ -36,7 +36,7 @@ export const CreateGameDialog = () => {
       data: { data: game },
     } = await createGame.mutateAsync({ game_type_id: gameType.id });
 
-    navigate(`/games/${game.id}`);
+    navigate(`/games/${game.id}/table`);
   };
 
   return gameTypes.isSuccess ? (

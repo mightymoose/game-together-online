@@ -1,6 +1,5 @@
 import { expect, it } from "vitest";
 import { ConnectionIconPage } from "./ConnectionIcon.page";
-import "@testing-library/jest-dom/vitest";
 
 it("shows the connecting badge", () => {
   const page = new ConnectionIconPage();

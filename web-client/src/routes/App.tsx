@@ -1,7 +1,7 @@
-import { Layout } from "./routes/Layout";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import LandingPage from "./routes/LandingPage";
-import { GameTable } from "./routes/GameTable";
+import { Layout } from "./Layout";
+import LandingPage from "./LandingPage";
+import { GameTable } from "./GameTable";
 
 const router = createBrowserRouter([
   {
