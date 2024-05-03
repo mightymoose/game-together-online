@@ -1,6 +1,7 @@
 defmodule Api.Games.Game do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
 
   alias Api.Games.GameType
 
@@ -12,6 +13,16 @@ defmodule Api.Games.Game do
     belongs_to :game_type, GameType
 
     timestamps(type: :utc_datetime)
+  end
+
+  def where_pending(query) do
+    where(query, [g], g.status == "pending")
+  end
+
+  def include_game_type(query) do
+    from q in query,
+      join: gt in assoc(q, :game_type),
+      preload: [game_type: gt]
   end
 
   @doc false

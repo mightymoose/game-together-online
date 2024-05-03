@@ -23,7 +23,7 @@ export class JoinGameCardPage {
     return new QuickPairingPage();
   }
 
-  get lobbyUnderConstructionMessage() {
-    return screen.queryByText("Under Construction");
+  get noGamesFoundMessage() {
+    return screen.queryByText("No Games Available");
   }
 }
