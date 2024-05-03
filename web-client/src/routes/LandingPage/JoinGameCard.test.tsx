@@ -23,14 +23,14 @@ describe("<JoinGameCard />", () => {
         page.quickPairing.spadesButton.quickPairButton,
       ).toBeInTheDocument(),
     );
-    expect(page.lobbyUnderConstructionMessage).not.toBeInTheDocument();
+    expect(page.noGamesFoundMessage).not.toBeInTheDocument();
     userEvent.click(page.lobbyTab);
     await waitFor(() =>
       expect(
         page.quickPairing.spadesButton.quickPairButton,
       ).not.toBeInTheDocument(),
     );
-    expect(page.lobbyUnderConstructionMessage).toBeInTheDocument();
+    expect(page.noGamesFoundMessage).toBeInTheDocument();
   });
 
   it.todo("navigates to a spades game when a game is quickly paired");

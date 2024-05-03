@@ -1,8 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ConstructionIcon } from "lucide-react";
 import { QuickPairing } from "./JoinGameCard/QuickPairing";
 import { useQuicklyPair } from "./JoinGameCard/QuickPairing/use-quickly-pair";
 import { useNavigate } from "react-router-dom";
+import { Lobby } from "./JoinGameCard/Lobby";
+import { preloadGameLobby } from "./JoinGameCard/Lobby/use-game-lobby";
 
 export const JoinGameCard = ({ className }: { className: string }) => {
   const quicklyPair = useQuicklyPair();
@@ -19,7 +20,11 @@ export const JoinGameCard = ({ className }: { className: string }) => {
         <TabsTrigger disabled={quicklyPair.isPending} value="quick-pairing">
           Quick Pairing
         </TabsTrigger>
-        <TabsTrigger disabled={quicklyPair.isPending} value="lobby">
+        <TabsTrigger
+          disabled={quicklyPair.isPending}
+          onMouseOver={preloadGameLobby}
+          value="lobby"
+        >
           Lobby
         </TabsTrigger>
       </TabsList>
@@ -27,8 +32,7 @@ export const JoinGameCard = ({ className }: { className: string }) => {
         <QuickPairing onCreate={handleQuicklyPair} />
       </TabsContent>
       <TabsContent value="lobby" className="flex justify-center mt-4 gap-2">
-        <ConstructionIcon />
-        Under Construction
+        <Lobby />
       </TabsContent>
     </Tabs>
   );

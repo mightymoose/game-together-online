@@ -26,6 +26,7 @@ defmodule ApiWeb.Router do
   scope "/api", ApiWeb do
     pipe_through :api
 
+    get "/games/lobby", Games.GamesController, :lobby
     resources "/games", Games.GamesController, only: [:create]
 
     scope "/games", Games do
